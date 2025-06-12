@@ -1,0 +1,604 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\datalist[entry]{none/global//global/global}
+  \entry{WEBSITE:LEO}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=W}{%
+         family={Wikipedia},
+         familyi={W\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{W1}
+    \strng{fullhash}{W1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Low Earth Orbit}
+    \verb{url}
+    \verb https://en.wikipedia.org/wiki/Low_Earth_orbit
+    \endverb
+    \field{urlday}{09}
+    \field{urlmonth}{09}
+    \field{urlyear}{2024}
+  \endentry
+
+  \entry{WEBSITE:GEO}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=W}{%
+         family={Wikipedia},
+         familyi={W\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{W1}
+    \strng{fullhash}{W1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Geostationary Orbit}
+    \verb{url}
+    \verb https://en.wikipedia.org/wiki/Geostationary_orbit
+    \endverb
+    \field{urlday}{09}
+    \field{urlmonth}{09}
+    \field{urlyear}{2024}
+  \endentry
+
+  \entry{WEBSITE_SKY}{misc}{}
+    \field{labeltitlesource}{title}
+    \field{title}{Skyloom Global}
+    \verb{url}
+    \verb https://www.skyloom.co/
+    \endverb
+    \field{urlday}{22}
+    \field{urlmonth}{03}
+    \field{urlyear}{2023}
+  \endentry
+
+  \entry{WEBSITE:EDFA2}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=SFO}{%
+         family={Share},
+         familyi={S\bibinitperiod},
+         given={Fiber\bibnamedelima Optics},
+         giveni={F\bibinitperiod\bibinitdelim O\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SFO1}
+    \strng{fullhash}{SFO1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Basic Knowledge About EDFA}
+    \verb{url}
+    \verb https://www.fiberopticshare.com/basic-knowledge-edfa.html
+    \endverb
+    \field{urlday}{14}
+    \field{urlmonth}{04}
+    \field{urlyear}{2023}
+  \endentry
+
+  \entry{DOC_REQ}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=CIL}{%
+         family={Constantino},
+         familyi={C\bibinitperiod},
+         given={Ing.\bibnamedelima Lucas},
+         giveni={I\bibinitperiod\bibinitdelim L\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{CIL1}
+    \strng{fullhash}{CIL1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Tester para amplificador óptico. Especificación de
+  requerimientos de software}
+    \verb{url}
+    \verb https://drive.google.com/file/d/12-mV9YiTrhrPz9u6ybiGlePk2mSL5Vg6/vie
+    \verb w?usp=sharing
+    \endverb
+    \field{year}{2022}
+  \endentry
+
+  \entry{WEBSITE:BANDAS}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=IF}{%
+         family={Inc.},
+         familyi={I\bibinitperiod},
+         given={FiberLabs},
+         giveni={F\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{IF1}
+    \strng{fullhash}{IF1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Optical Communication Band}
+    \verb{url}
+    \verb https://www.fiberlabs.com/glossary/optical-communication-band/
+    \endverb
+    \field{urlday}{10}
+    \field{urlmonth}{09}
+    \field{urlyear}{2024}
+  \endentry
+
+  \entry{WEBSITE:EDFA1}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=ERP}{%
+         family={Encyclopedia},
+         familyi={E\bibinitperiod},
+         given={RP\bibnamedelima Photonics},
+         giveni={R\bibinitperiod\bibinitdelim P\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{ERP1}
+    \strng{fullhash}{ERP1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Erbium-doped Fiber Amplifiers}
+    \verb{url}
+    \verb https://www.rp-photonics.com/erbium_doped_fiber_amplifiers.html
+    \endverb
+    \field{urlday}{14}
+    \field{urlmonth}{04}
+    \field{urlyear}{2023}
+  \endentry
+
+  \entry{WEBSITE:FIBRA}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=W}{%
+         family={Wikipedia},
+         familyi={W\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{W1}
+    \strng{fullhash}{W1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Fibra óptica}
+    \verb{url}
+    \verb https://es.wikipedia.org/wiki/Fibra_%C3%B3ptica
+    \endverb
+    \field{urlday}{14}
+    \field{urlmonth}{04}
+    \field{urlyear}{2023}
+  \endentry
+
+  \entry{WEBSITE:EMISSION}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=W}{%
+         family={Wikipedia},
+         familyi={W\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{W1}
+    \strng{fullhash}{W1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Stimulated emission}
+    \verb{url}
+    \verb https://en.wikipedia.org/wiki/Stimulated_emission
+    \endverb
+    \field{urlday}{14}
+    \field{urlmonth}{04}
+    \field{urlyear}{2023}
+  \endentry
+
+  \entry{WEBSITE:EDFA3}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=T}{%
+         family={ThorLabs},
+         familyi={T\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{T1}
+    \strng{fullhash}{T1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Gain Flattening Filters}
+    \verb{url}
+    \verb https://www.thorlabs.com/newgrouppage9.cfm?objectgroup_id=15022
+    \endverb
+    \field{urlday}{16}
+    \field{urlmonth}{09}
+    \field{urlyear}{2024}
+  \endentry
+
+  \entry{WEBSITE:MICROD_DS}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=A}{%
+         family={Amphenol},
+         familyi={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{A1}
+    \strng{fullhash}{A1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Conectores Micro-D}
+    \verb{url}
+    \verb https://www.amphenolcanada.com/pdf/Micro-D-Catalog.pdf
+    \endverb
+    \field{urlday}{08}
+    \field{urlmonth}{09}
+    \field{urlyear}{2024}
+  \endentry
+
+  \entry{STM32F429}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=MS}{%
+         family={Microelectronics},
+         familyi={M\bibinitperiod},
+         given={ST},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{MS1}
+    \strng{fullhash}{MS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{STM32F429ZI}
+    \verb{url}
+    \verb https://www.st.com/resource/en/datasheet/stm32f429zi.pdf
+    \endverb
+  \endentry
+
+  \entry{NUCLEO144}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=MS}{%
+         family={Microelectronics},
+         familyi={M\bibinitperiod},
+         given={ST},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{MS1}
+    \strng{fullhash}{MS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Nucleo-144}
+    \verb{url}
+    \verb https://www.farnell.com/datasheets/2014265.pdf
+    \endverb
+  \endentry
+
+  \entry{INA301}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=IT}{%
+         family={Instruments},
+         familyi={I\bibinitperiod},
+         given={Texas},
+         giveni={T\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{IT1}
+    \strng{fullhash}{IT1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{INA301}
+    \verb{url}
+    \verb https://www.ti.com/lit/ds/symlink/ina301.pdf?src-supplier=Digi-Key
+    \endverb
+  \endentry
+
+  \entry{MSP2807}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=L}{%
+         family={LCDWiki},
+         familyi={L\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{L1}
+    \strng{fullhash}{L1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{MSP2807}
+    \verb{url}
+    \verb http://www.lcdwiki.com/2.8inch_SPI_Module_ILI9341_SKU:MSP2807
+    \endverb
+    \field{urlday}{07}
+    \field{urlmonth}{04}
+    \field{urlyear}{2023}
+  \endentry
+
+  \entry{WEBSITE:1}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=W}{%
+         family={Wikipedia},
+         familyi={W\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{W1}
+    \strng{fullhash}{W1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{FreeRTOS}
+    \verb{url}
+    \verb https://en.wikipedia.org/wiki/FreeRTOS
+    \endverb
+    \field{urlday}{30}
+    \field{urlmonth}{03}
+    \field{urlyear}{2023}
+  \endentry
+
+  \entry{WEBSITE:FREERTOS}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=A}{%
+         family={AWS},
+         familyi={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{A2}
+    \strng{fullhash}{A2}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{FreeRTOS}
+    \verb{url}
+    \verb https://docs.aws.amazon.com/freertos/latest/userguide/dev-guide-freer
+    \verb tos-kernel.html
+    \endverb
+    \field{urlday}{07}
+    \field{urlmonth}{04}
+    \field{urlyear}{2023}
+  \endentry
+
+  \entry{WEBSITE:HAL}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=W}{%
+         family={Wikipedia},
+         familyi={W\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{W1}
+    \strng{fullhash}{W1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Hardware abstraction}
+    \verb{url}
+    \verb https://en.wikipedia.org/wiki/Hardware_abstraction
+    \endverb
+    \field{urlday}{11}
+    \field{urlmonth}{04}
+    \field{urlyear}{2023}
+  \endentry
+
+  \entry{WEBSITE:STM32CUBE}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=S}{%
+         family={ST},
+         familyi={S\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{S1}
+    \strng{fullhash}{S1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Description of STM32F1 HAL and low-layer drivers}
+    \verb{url}
+    \verb https://www.st.com/resource/en/user_manual/dm00154093-description-of-
+    \verb stm32f1-hal-and-low-layer-drivers-stmicroelectronics.pdf
+    \endverb
+    \field{urlday}{13}
+    \field{urlmonth}{04}
+    \field{urlyear}{2023}
+  \endentry
+
+  \entry{WEBSITE:2}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=W}{%
+         family={Wikipedia},
+         familyi={W\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{W1}
+    \strng{fullhash}{W1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Analog-to-digital converter}
+    \verb{url}
+    \verb https://en.wikipedia.org/wiki/Analog-to-digital_converter
+    \endverb
+    \field{urlday}{31}
+    \field{urlmonth}{03}
+    \field{urlyear}{2023}
+  \endentry
+
+  \entry{WEBSITE:3}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=E}{%
+         family={Embedded},
+         familyi={E\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{E1}
+    \strng{fullhash}{E1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{UART}
+    \verb{url}
+    \verb https://www.embedded.com/understanding-the-uart/
+    \endverb
+    \field{urlday}{02}
+    \field{urlmonth}{04}
+    \field{urlyear}{2023}
+  \endentry
+
+  \entry{WEBSITE:SPI}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=W}{%
+         family={Wikipedia},
+         familyi={W\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{W1}
+    \strng{fullhash}{W1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{SPI}
+    \verb{url}
+    \verb https://en.wikipedia.org/wiki/Serial_Peripheral_Interface
+    \endverb
+    \field{urlday}{13}
+    \field{urlmonth}{04}
+    \field{urlyear}{2023}
+  \endentry
+
+  \entry{WEBSITE:RELE_DS}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=P}{%
+         family={Panasonic},
+         familyi={P\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{P1}
+    \strng{fullhash}{P1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Relé de proposito general serie PA-N}
+    \verb{url}
+    \verb https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/891/PA-N
+    \verb _Series.pdf
+    \endverb
+    \field{urlday}{09}
+    \field{urlmonth}{09}
+    \field{urlyear}{2024}
+  \endentry
+
+  \entry{WEBSITE:TRANS_DS}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=SF}{%
+         family={Semiconductor},
+         familyi={S\bibinitperiod},
+         given={Fairchild},
+         giveni={F\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SF1}
+    \strng{fullhash}{SF1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Transistor bipolar NPN}
+    \verb{url}
+    \verb https://rocelec.widen.net/view/pdf/ylkha27spa/FAIRS44268-1.pdf?t.down
+    \verb load=true&u=5oefqw
+    \endverb
+    \field{urlday}{09}
+    \field{urlmonth}{09}
+    \field{urlyear}{2024}
+  \endentry
+
+  \entry{WEBSITE:RC_CIRCUIT}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=W}{%
+         family={Wikipedia},
+         familyi={W\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{W1}
+    \strng{fullhash}{W1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{RC Circuit}
+    \verb{url}
+    \verb https://en.wikipedia.org/wiki/RC_circuit
+    \endverb
+    \field{urlday}{09}
+    \field{urlmonth}{09}
+    \field{urlyear}{2024}
+  \endentry
+
+  \entry{WEBSITE:BUFFERS_DS}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=IT}{%
+         family={Instruments},
+         familyi={I\bibinitperiod},
+         given={Texas},
+         giveni={T\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{IT1}
+    \strng{fullhash}{IT1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Buffers de ocho canales serie SN74LVC2244A}
+    \verb{url}
+    \verb https://www.ti.com/lit/ds/symlink/sn74lvc2244a.pdf
+    \endverb
+    \field{urlday}{08}
+    \field{urlmonth}{09}
+    \field{urlyear}{2024}
+  \endentry
+
+  \entry{WEBSITE:PULSADOR_DS}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=ES}{%
+         family={E-Switch},
+         familyi={E\bibinithyphendelim S\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{ES1}
+    \strng{fullhash}{ES1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Pulsadores serie TL1265}
+    \verb{url}
+    \verb https://eswitch.wpengine.com/wp-content/uploads/2022/06/TL1265.pdf
+    \endverb
+    \field{urlday}{08}
+    \field{urlmonth}{09}
+    \field{urlyear}{2024}
+  \endentry
+
+  \entry{WEBSITE:LEDS_DS}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=K}{%
+         family={Kingbright},
+         familyi={K\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{K1}
+    \strng{fullhash}{K1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{LEDs de montaje superficial serie AA3528LVBS/D}
+    \verb{url}
+    \verb https://www.kingbrightusa.com/images/catalog/SPEC/AA3528LVBS-D.pdf
+    \endverb
+    \field{urlday}{08}
+    \field{urlmonth}{09}
+    \field{urlyear}{2024}
+  \endentry
+
+  \entry{WEBSITE:POTENC_DS}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=B}{%
+         family={Bourns},
+         familyi={B\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{B1}
+    \strng{fullhash}{B1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Resistencias variables serie PTV09}
+    \verb{url}
+    \verb https://www.bourns.com/docs/Product-Datasheets/PTV09.pdf
+    \endverb
+    \field{urlday}{08}
+    \field{urlmonth}{09}
+    \field{urlyear}{2024}
+  \endentry
+\enddatalist
+\endinput

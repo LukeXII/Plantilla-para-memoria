@@ -3,200 +3,197 @@
 \label{Chapter2}
 
 %----------------------------------------------------------------------------------------
-%	SECTION 1
+%	Chapter 2
 %----------------------------------------------------------------------------------------
-Todos los capítulos deben comenzar con un breve párrafo introductorio que indique cuál es el contenido que se encontrará al leerlo.  La redacción sobre el contenido de la memoria debe hacerse en presente y todo lo referido al proyecto en pasado, siempre de modo impersonal.
 
-\section{Estilo y convenciones}
-\label{sec:ejemplo}
+Este capítulo lista los requerimientos y en base a ellos presenta y describe los componentes internos del sistema desarrollado, junto con las tecnologías y recursos de software utilizados para su implementación. Asimismo, se realiza una descripción simplificada del funcionamiento de un EDFA.
 
-\subsection{Uso de mayúscula inicial para los título de secciones}
+\section{Requerimientos}
+\label{sec:reqs}
 
-Si en el texto se hace alusión a diferentes partes del trabajo referirse a ellas como capítulo, sección o subsección según corresponda. Por ejemplo: ``En el capítulo \ref{Chapter1} se explica tal cosa'', o ``En la sección \ref{sec:ejemplo} se presenta lo que sea'', o ``En la subsección \ref{subsec:ejemplo} se discute otra cosa''.
+Los requerimientos fueron determinados en conjunto con la empresa en base a las funcionalidades y prestaciones con las que debe contar el sistema. Como la lista es muy extensa, se listan a continuación solamente algunos de los principales:
 
-Cuando se quiere poner una lista tabulada, se hace así:
-
-\begin{itemize}
-	\item Este es el primer elemento de la lista.
-	\item Este es el segundo elemento de la lista.
-\end{itemize}
-
-Notar el uso de las mayúsculas y el punto al final de cada elemento.
-
-Si se desea poner una lista numerada el formato es este:
+\renewcommand{\labelenumii}{\arabic{enumi}.\arabic{enumii}}
 
 \begin{enumerate}
-	\item Este es el primer elemento de la lista.
-	\item Este es el segundo elemento de la lista.
+
+\item Encendido y apagado del EDFA
+	\begin{enumerate}
+	\item El software debe apagar la salida óptica del dispositivo 			EDFA bajo prueba cuando se detecte la activación de alguna de las 		alarmas.
+	\item Mediante la función táctil de la pantalla LCD el usuario 			debe poder prender y apagar la alimentación del dispositivo EDFA 		bajo prueba y su salida óptica.
+	\item El software debe cortar la alimentación del dispositivo EDFA 	bajo prueba cuando se detecte que la corriente supera el valor 			previamente definido.
+	\item El software debe medir y mostrar en pantalla los valores de 		tensión de alimentación y consumo de corriente del dispositivo 			EDFA bajo prueba mediante las señales analógicas de entrada 			provenientes de los respectivos monitores, con una precisión no 		menor al 10\% (máximo desvío con respecto al valor real). Este 			valor debe ser de una cifra significativa para la parte entera y 		dos para la decimal.
+	\end{enumerate}
+
+\item Pantalla LCD
+	\begin{enumerate}
+	\item El software debe actualizar la imagen de la pantalla cada 		medio segundo (2 cuadros por segundo).
+	\item La pantalla deberá indicar el estado de la salida óptica del 	dispositivo EDFA bajo prueba y el del relé de alimentación.
+	\item Mediante la función táctil de la pantalla LCD el usuario 			debe poder cambiar el valor para el cual se detecta una 				sobrecorriente. El rango válido para este valor debe ser de 0 A a 		3 A, siendo la parte decimal de dos cifras significativas.
+	\end{enumerate}
+	
+\item Entradas y salidas del EDFA
+	\begin{enumerate}
+	\item El software deberá mostrar en la pantalla los estados de todas las señales digitales de entrada y salida del dispositivo EDFA bajo prueba.
+	\end{enumerate}
+
+\item Requisitos de rendimiento
+	\begin{enumerate}
+	\item \label{item:req1} La apertura del relé de alimentación del dispositivo EDFA 		bajo prueba deberá efectuarse en un tiempo menor a 50 ms luego de 		detectarse una sobrecorriente o una caída de la tensión de 				alimentación.
+	\item \label{item:req2} El apagado de la salida óptica del dispositivo EDFA bajo 			prueba deberá efectuarse en un tiempo menor a 100 ms luego de 			detectarse la activación de una alarma.
+	\end{enumerate}
+	
 \end{enumerate}
 
-Notar el uso de las mayúsculas y el punto al final de cada elemento.
+La lista completa de requerimientos se puede ver en \citep{DOC_REQ}.
 
-\subsection{Este es el título de una subsección}
-\label{subsec:ejemplo}
+\section{Funcionamiento de un amplificador óptico}
+\label{sec:funcAmp}
 
-Se recomienda no utilizar \textbf{texto en negritas} en ningún párrafo, ni tampoco texto \underline{subrayado}. En cambio sí se debe utilizar \textit{texto en itálicas} para palabras en un idioma extranjero, al menos la primera vez que aparecen en el texto. En el caso de palabras que estamos inventando se deben utilizar ``comillas'', así como también para citas textuales. Por ejemplo, un \textit{digital filter} es una especie de ``selector'' que permite separar ciertos componentes armónicos en particular.
+Los amplificadores de fibra dopados con erbio son los amplificadores ópticos más importantes en el contexto de comunicaciones ópticas de larga distancia. Son utilizados en la banda L y C del espectro (aproximadamente entre 1530 nm y 1625 nm \citep{WEBSITE:BANDAS}), región en la que las pérdidas en la fibra óptica son menores. Esto se puede ver en la figura \ref{fig:espectro}, que muestra las pérdidas en función de la longitud de onda de la luz utilizada.
 
-La escritura debe ser impersonal. Por ejemplo, no utilizar ``el diseño del firmware lo hice de acuerdo con tal principio'', sino ``el firmware fue diseñado utilizando tal principio''. 
-
-El trabajo es algo que al momento de escribir la memoria se supone que ya está concluido, entonces todo lo que se refiera a hacer el trabajo se narra en tiempo pasado, porque es algo que ya ocurrió. Por ejemplo, "se diseñó el firmware empleando la técnica de test driven development".
-
-En cambio, la memoria es algo que está vivo cada vez que el lector la lee. Por eso transcurre siempre en tiempo presente, como por ejemplo:
-
-``En el presente capítulo se da una visión global sobre las distintas pruebas realizadas y los resultados obtenidos. Se explica el modo en que fueron llevados a cabo los test unitarios y las pruebas del sistema''.
-
-Se recomienda no utilizar una sección de glosario sino colocar la descripción de las abreviaturas como parte del mismo cuerpo del texto. Por ejemplo, RTOS (\textit{Real Time Operating System}, Sistema Operativo de Tiempo Real) o en caso de considerarlo apropiado mediante notas a pie de página.
-
-Si se desea indicar alguna página web utilizar el siguiente formato de referencias bibliográficas, dónde las referencias se detallan en la sección de bibliografía de la memoria, utilizado el formato establecido por IEEE en \citep{IEEE:citation}. Por ejemplo, ``el presente trabajo se basa en la plataforma EDU-CIAA-NXP \citep{CIAA}, la cual...''.
-
-\subsection{Figuras} 
-
-Al insertar figuras en la memoria se deben considerar determinadas pautas. Para empezar, usar siempre tipografía claramente legible. Luego, tener claro que \textbf{es incorrecto} escribir por ejemplo esto: ``El diseño elegido es un cuadrado, como se ve en la siguiente figura:''
-
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
-\includegraphics[scale=.45]{./Figures/cuadradoAzul.png}
+\includegraphics[width=0.85\textwidth]{./Figures/espectro.png}
+\caption{Pérdidas en la fibra\protect\footnotemark.}
+\label{fig:espectro}
 \end{figure}
 
-La forma correcta de utilizar una figura es con referencias cruzadas, por ejemplo: ``Se eligió utilizar un cuadrado azul para el logo, como puede observarse en la figura \ref{fig:cuadradoAzul}''.
+\footnotetext{Imagen tomada de \citep{WEBSITE:BANDAS}}
 
-\begin{figure}[ht]
+Inventado en 1987 \citep{WEBSITE:EDFA1}, el EDFA es generalmente usado para compensar las pérdidas mencionadas en una línea de transmisión óptica. Este puede ser colocado en tres partes: 
+
+\begin{itemize}
+\item Inmediatamente después del transmisor, para aumentar la potencia inyectada en la línea.
+\item En el medio del camino óptico, para compensar las pérdidas por la distancia recorrida.
+\item Antes del receptor, para favorecer la detección de la señal.
+\end{itemize}
+
+La figura \ref{fig:EDFAinterno} muestra la configuración interna más común de un EDFA. Su componente principal es la fibra dopada con erbio (EDF por sus siglas en inglés), que generalmente es monomodo \citep{WEBSITE:FIBRA}. 
+
+La luz ingresa al amplificador mediante el puerto de entrada y luego mediante un divisor se redirige un porcentaje de la señal (generalmente entre un 1\% y 2\% \citep{WEBSITE:EDFA2}) a un detector para realizar una medición de la potencia óptica. Luego, pasa por un aislador óptico que permite la transmisión de luz en un solo sentido y así evita una realimentación debida a reflexiones en etapas posteriores.
+
+La bomba de 980 nm es un diodo láser que genera una señal lumínica en esa longitud de onda. Esta luego se mezcla con la señal de luz entrante (a la salida del aislador) y atraviesan la fibra dopada con erbio. En esta instancia es donde se genera la amplificación de la señal propiamente dicha, mediante un efecto denominado emisión estimulada \citep{WEBSITE:EDFA2}\citep{WEBSITE:EMISSION}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{./Figures/EDFAinterno.png}
+\caption{Configuración interna de un EDFA\protect\footnotemark.}
+\label{fig:EDFAinterno}
+\end{figure}
+
+\footnotetext{Imagen tomada de \citep{WEBSITE:EDFA2}}
+
+Una vez amplificada, la señal pasa nuevamente por otro aislador que se encarga principalmente de filtrar la luz de 980 nm, evitando que se introduzca en el camino óptico. Luego, la señal pasa por un filtro aplanador de ganancia (GFF por sus siglas en inglés) cuyo objetivo es hacer constante la ganancia del amplificador en todo el ancho de banda de trabajo \citep{WEBSITE:EDFA3} (bandas C y L del espectro). Finalmente, antes de que la luz salga del amplificador, se realiza nuevamente una medición de la potencia óptica al igual que en la entrada.
+
+Tanto la bomba de 980 nm como ambos detectores de potencia se encuentran conectados a una unidad de control. Esta generalmente cuenta con un microcontrolador o chip dedicado que se encarga de regular la potencia que entrega la bomba en base a los valores medidos por los detectores, creando un lazo de control automático de ganancia \citep{WEBSITE:EDFA2}\citep{WEBSITE:EDFA1}.
+
+\section{Interfaz del amplificador óptico}
+\label{sec:intAmp}
+
+Como se mencionó en la sección \ref{sec:contexto}, para poder controlarlo, el EDFA cuenta con un conector de 25 pines tipo Micro-D \citep{WEBSITE:MICROD_DS}. Este conector contiene varios grupos de señales con distintas funciones. La tabla \ref{tab:señalesConector} lista cada una de las señales de la interfaz, junto con los detalles de su dirección, tipo y función.
+
+\begin{table}[H]
 	\centering
-	\includegraphics[scale=.45]{./Figures/cuadradoAzul.png}
-	\caption{Ilustración del cuadrado azul que se eligió para el diseño del logo.}
-	\label{fig:cuadradoAzul}
-\end{figure}
-
-El texto de las figuras debe estar siempre en español, excepto que se decida reproducir una figura original tomada de alguna referencia. En ese caso la referencia de la cual se tomó la figura debe ser indicada en el epígrafe de la figura e incluida como una nota al pie, como se ilustra en la figura \ref{fig:palabraIngles}.
-
-\begin{figure}[htpb]
-	\centering
-	\includegraphics[scale=.3]{./Figures/word.jpeg}
-	\caption{Imagen tomada de la página oficial del procesador\protect\footnotemark.}
-	\label{fig:palabraIngles}
-\end{figure}
-
-\footnotetext{Imagen tomada de \url{https://goo.gl/images/i7C70w}}
-
-La figura y el epígrafe deben conformar una unidad cuyo significado principal pueda ser comprendido por el lector sin necesidad de leer el cuerpo central de la memoria. Para eso es necesario que el epígrafe sea todo lo detallado que corresponda y si en la figura se utilizan abreviaturas entonces aclarar su significado en el epígrafe o en la misma figura.
-
-
-
-\begin{figure}[ht]
-	\centering
-	\includegraphics[scale=.37]{./Figures/questionMark.png}
-	\caption{¿Por qué de pronto aparece esta figura?}
-	\label{fig:questionMark}
-\end{figure}
-
-Nunca colocar una figura en el documento antes de hacer la primera referencia a ella, como se ilustra con la figura \ref{fig:questionMark}, porque sino el lector no comprenderá por qué de pronto aparece la figura en el documento, lo que distraerá su atención.
-
-Otra posibilidad es utilizar el entorno \textit{subfigure} para incluir más de una figura, como se puede ver en la figura \ref{fig:three graphs}. Notar que se pueden referenciar también las figuras internas individualmente de esta manera: \ref{fig:1de3}, \ref{fig:2de3} y \ref{fig:3de3}.
- 
-\begin{figure}[!htpb]
-     \centering
-     \begin{subfigure}[b]{0.3\textwidth}
-         \centering
-         \includegraphics[width=.65\textwidth]{./Figures/questionMark}
-         \caption{Un caption.}
-         \label{fig:1de3}
-     \end{subfigure}
-     \hfill
-     \begin{subfigure}[b]{0.3\textwidth}
-         \centering
-         \includegraphics[width=.65\textwidth]{./Figures/questionMark}
-         \caption{Otro.}
-         \label{fig:2de3}
-     \end{subfigure}
-     \hfill
-     \begin{subfigure}[b]{0.3\textwidth}
-         \centering
-         \includegraphics[width=.65\textwidth]{./Figures/questionMark}
-         \caption{Y otro más.}
-         \label{fig:3de3}
-     \end{subfigure}
-        \caption{Tres gráficos simples.}
-        \label{fig:three graphs}
-\end{figure}
-
-El código para generar las imágenes se encuentra disponible para su reutilización en el archivo \file{Chapter2.tex}.
-
-\subsection{Tablas}
-
-Para las tablas utilizar el mismo formato que para las figuras, sólo que el epígrafe se debe colocar arriba de la tabla, como se ilustra en la tabla \ref{tab:peces}. Observar que sólo algunas filas van con líneas visibles y notar el uso de las negritas para los encabezados.  La referencia se logra utilizando el comando \verb|\ref{<label>}| donde label debe estar definida dentro del entorno de la tabla.
-
-\begin{verbatim}
-\begin{table}[h]
-	\centering
-	\caption[caption corto]{caption largo más descriptivo}
-	\begin{tabular}{l c c}    
+	\caption{Señales de la interfaz del EDFA.}
+	\begin{tabular}{l c p{1.5cm} p{5cm}}
 		\toprule
-		\textbf{Especie}     & \textbf{Tamaño} & \textbf{Valor}\\
+		\textbf{Nombre de la señal}	& \textbf{Dirección}	& \textbf{Tipo} & \textbf{Función} \\
 		\midrule
-		Amphiprion Ocellaris & 10 cm           & \$ 6.000 \\		
-		Hepatus Blue Tang    & 15 cm           & \$ 7.000 \\
-		Zebrasoma Xanthurus  & 12 cm           & \$ 6.800 \\
+		5 V 					& Entrada	& Potencia			& Entrada de alimentación del EDFA. \\		
+		PGND				& Salida	& Potencia  		& Retorno de alimentación (potencia). \\
+		GND					& Salida	& Tierra digital  	& Retorno de alimentación (digital). \\
+		IN\_POW				& Salida	& Analógica 		& Indica el nivel de potencia óptica de entrada. \\
+		OUT\_POW			& Salida	& Analógica 		& Indica el nivel de potencia óptica de salida. \\
+		CASE\_TEMP\_ALARM	& Salida	& Digital 			& Alarma de temperatura de la carcasa del EDFA. \\
+		PUMP\_BIAS\_ALARM	& Salida	& Digital 			& Alarma de la bomba de polarización. \\
+		OUT\_POW\_ALARM		& Salida	& Digital 			& Alarma de nivel de potencia de salida. \\
+		IN\_POW\_ALARM		& Salida	& Digital 			& Alarma de nivel de potencia de entrada. \\
+		EN/DIS				& Entrada	& Digital 			& Habilitación del amplificador. \\
+		RESET\_uC			& Entrada	& Digital 			& Reset del microcontrolador del EDFA. \\
+		OUT\_POW\_MUTE		& Entrada	& Digital 			& Habilitación de la salida óptica. \\
+		UART\_TX			& Salida	& Digital 			& Transmisor del UART interno del EDFA. \\
+		UART\_RX			& Entrada	& Digital 			& Receptor del UART interno del EDFA. \\
 		\bottomrule
 		\hline
 	\end{tabular}
-	\label{tab:peces}
-\end{table}
-\end{verbatim}
-
-
-\begin{table}[h]
-	\centering
-	\caption[caption corto]{caption largo más descriptivo.}
-	\begin{tabular}{l c c}    
-		\toprule
-		\textbf{Especie} 	 & \textbf{Tamaño} 		& \textbf{Valor}  \\
-		\midrule
-		Amphiprion Ocellaris & 10 cm 				& \$ 6.000 \\		
-		Hepatus Blue Tang	 & 15 cm				& \$ 7.000 \\
-		Zebrasoma Xanthurus	 & 12 cm				& \$ 6.800 \\
-		\bottomrule
-		\hline
-	\end{tabular}
-	\label{tab:peces}
+	\label{tab:señalesConector}
 \end{table}
 
-En cada capítulo se debe reiniciar el número de conteo de las figuras y las tablas, por ejemplo, figura 2.1 o tabla 2.1, pero no se debe reiniciar el conteo en cada sección. Por suerte la plantilla se encarga de esto por nosotros.
+A continuación, se provee una breve explicación de cada grupo de señales:
+\begin{itemize}
+\item Alimentación: tiene separada la tierra en digital, para la lógica y la comunicación, y la de potencia para la amplificación de la señal óptica.
+\item Señales analógicas: indican el nivel de potencia óptica de entrada y salida del EDFA.
+\item Alarmas: mediante un estado en alto indican si ocurrió alguno de los eventos que requieren la atención del usuario.
+\item Señales de control: controlan el funcionamiento de ciertos componentes del amplificador.
+\item Comunicación UART: permite el envío de comandos al EDFA y la consulta de valores de parámetros internos como temperaturas, potencias, ganancias, etc.
+\end{itemize}
 
-\subsection{Ecuaciones}
-\label{sec:Ecuaciones}
+\section{Componentes del sistema}
 
-Al insertar ecuaciones en la memoria dentro de un entorno \textit{equation}, éstas se numeran en forma automática  y se pueden referir al igual que como se hace con las figuras y tablas, por ejemplo ver la ecuación \ref{eq:metric}.
+Los componentes de hardware que conforman el sistema descrito en la sección \ref{sec:contexto} fueron seleccionados con el objetivo de cumplir con los requisitos, optimizando al mismo tiempo la cantidad de elementos utilizados. Así se logra mantener al sistema simple, con poca probabilidad de fallas, fácil de usar y probar. A continuación se presentan los principales componentes y sus características.
 
-\begin{equation}
-	\label{eq:metric}
-	ds^2 = c^2 dt^2 \left( \frac{d\sigma^2}{1-k\sigma^2} + \sigma^2\left[ d\theta^2 + \sin^2\theta d\phi^2 \right] \right)
-\end{equation}
-                                                        
-Es importante tener presente que si bien las ecuaciones pueden ser referidas por su número, también es correcto utilizar los dos puntos, como por ejemplo ``la expresión matemática que describe este comportamiento es la siguiente:''
+\subsection{Microcontrolador}
 
-\begin{equation}
-	\label{eq:schrodinger}
-	\frac{\hbar^2}{2m}\nabla^2\Psi + V(\mathbf{r})\Psi = -i\hbar \frac{\partial\Psi}{\partial t}
-\end{equation}
+El modelo de microcontrolador utilizado es el STM32F429 \citep{STM32F429}, del fabricante ST y con arquitectura de procesador Arm Cortex-M. La principal razón por la que se decidió utilizar este modelo es porque es el que se encuentra integrado en la placa de desarrollo NUCLEO-144, utilizada durante la cursada de la especialización.
 
-Para generar la ecuación \ref{eq:metric} se utilizó el siguiente código:
+La placa de desarrollo NUCLEO-144 es ideal para ejecutar un RTOS debido a su alta velocidad de reloj, gran capacidad de memoria flash y variedad de periféricos, además de contar con la ventaja de tener integrada la interfaz de programación y depuración ST-LINK/V2 \citep{NUCLEO144}.
 
-\begin{verbatim}
-\begin{equation}
-	\label{eq:metric}
-	ds^2 = c^2 dt^2 \left( \frac{d\sigma^2}{1-k\sigma^2} + 
-	\sigma^2\left[ d\theta^2 + 
-	\sin^2\theta d\phi^2 \right] \right)
-\end{equation}
-\end{verbatim}
+\subsection{Monitor de corriente}
 
-Y para la ecuación \ref{eq:schrodinger}:
+El circuito integrado seleccionado para medir la corriente de alimentación del amplificador mientras está en funcionamiento es el INA301A3 \citep{INA301}.
 
-\begin{verbatim}
-\begin{equation}
-	\label{eq:schrodinger}
-	\frac{\hbar^2}{2m}\nabla^2\Psi + V(\mathbf{r})\Psi = 
-	-i\hbar \frac{\partial\Psi}{\partial t}
-\end{equation}
+Este chip provee en uno de sus pines una tensión analógica proporcional a la corriente que se está midiendo. Asimismo, cuenta con una salida digital que se activa cuando la corriente medida alcanza cierto nivel establecido mediante un resistor (pin ALERT) \citep{INA301}.
 
-\end{verbatim}
+\subsection{Pantalla táctil LCD}
+\label{sec:pantLCD}
+
+El modelo del módulo de la pantalla LCD utilizada en el trabajo es MSP2807 \citep{MSP2807}, que es una solución integrada, es decir, cuenta con toda la electrónica necesaria para poder hacer uso de la pantalla en su totalidad. Para esto cuenta con dos circuitos integrados: el controlador del display de la pantalla (lo que permite dibujar en ella) y el controlador de la función táctil (lo que permite detectar cuando se la toca). En la figura \ref{fig:pantLCD} se puede ver una imagen de la pantalla.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{./Figures/pant_LCD.png}
+\caption{Pantalla LCD táctil MSP2807\protect\footnotemark.}
+\label{fig:pantLCD}
+\end{figure}
+
+\footnotetext{Imagen tomada de \citep{MSP2807}}
+
+El controlador del display utiliza una interfaz SPI para la recepción de datos y cuenta con una señal DC/RS para distinguir entre datos y registros internos. El controlador táctil también opera mediante SPI y dispone de una señal de interrupción T\_IRQ que indica cuando se ha producido una interacción en la pantalla \citep{MSP2807}.
+
+\section{Recursos de software}
+
+Para el firmware del microcontrolador se usaron distintas herramientas que permitieron el desarrollo de una estructura de software jerárquica, simple y eficaz.
+
+\subsection{Sistema operativo de tiempo real FreeRTOS}
+
+FreeRTOS es un sistema operativo de tiempo real (RTOS) diseñado para microcontroladores y microprocesadores pequeños. Se caracteriza por ser liviano, confiable y fácil de usar. Ofrece recursos como tareas, semáforos, \textit{mutexes}, colas y gestores de memoria dinámica \citep{WEBSITE:1}, lo que simplifica la creación y gestión de aplicaciones sobre el sistema operativo.
+
+FreeRTOS se sitúa en una capa intermedia del firmware, por encima de los drivers del fabricante y debajo de la aplicación de usuario, brindando una capa de abstracción que automatiza la gestión de los recursos de hardware. Su principal ventaja es la capacidad de ejecutar múltiples tareas o procesos de manera simultánea. Esto permite estructurar aplicaciones en tareas independientes y sincronizadas \citep{WEBSITE:FREERTOS}.
+
+\subsection{Capa de abstracción de hardware (HAL)}
+
+Una \textit{hardware abstraction layer} o HAL es un conjunto de rutinas de software que brinda acceso a recursos de hardware a programas de aplicación. Se ubica inmediatamente por arriba del hardware y por debajo del sistema operativo que se ejecuta.
+
+La principal ventaja de esta capa es que oculta la arquitectura del hardware del \textit{kernel} del sistema operativo. Así, el código del \textit{kernel} no tiene que ser cambiado o reescrito para que pueda correr sobre sistemas con distinto hardware y las aplicaciones de software se vuelven independientes de la plataforma (portabilidad) \citep{WEBSITE:HAL}.
+
+La HAL de la serie de microcontroladores STM32 se denomina STM32Cube y tiene como objetivo asegurar la máxima portabilidad entre dispositivos de la misma familia y proveer APIs (\textit{Application Programming Interface}) multi-instancia para todos los periféricos (UART, SPI, temporizadores, ADC, etc.). Estas APIs están listas para usar y facilitan la implementación de la aplicación de usuario. Por ejemplo, los periféricos de comunicación cuentan con APIs para inicializarlos y configurarlos, gestionar la transferencia de datos en modo \textit{polling}, manejar las interrupciones, el DMA (\textit{Direct Memory Access}) y los errores de comunicación \citep{WEBSITE:STM32CUBE}.
+
+\section{Periféricos utilizados}
+
+A excepción del monitor de corriente, el resto de los periféricos utilizados ya se encuentran integrados en el chip del microcontrolador, por lo que no hubo necesidad de agregar ningún hardware adicional.
+
+\subsection{Conversor analógico-digital (ADC)}
+
+Un conversor analógico-digital o ADC es un dispositivo que convierte una señal eléctrica analógica proveniente, por ejemplo, de un sensor a una señal digital. De esta forma su valor puede ser almacenado en un sistema digital, por lo que estará representada por un número binario \citep{WEBSITE:2}.
+
+\subsection{Universal Asynchronous Receiver Transmitter (UART)}
+
+Un UART es un dispositivo utilizado para establecer una comunicación serie asíncrona, con formato de datos y velocidad de transmisión configurables. Consta solo de dos señales que conectan dos dispositivos de forma bidireccional: una para la transmisión y otra para la recepción, comúnmente llamadas TX y RX respectivamente \citep{WEBSITE:3}.
+
+\subsection{Serial Peripheral Interface (SPI)}
+
+SPI es una especificación de interfaz de comunicación serie sincrónica para distancias cortas. Es comúnmente utilizada para enviar datos entre un sistema embebido y pequeños periféricos como sensores y memorias SD.
+
+Los dispositivos SPI se comunican en modo \textit{full duplex} (ambos sentidos simultáneos) y cuentan con una señal de clock, dato entrante, dato saliente y de selección de esclavo, que conecta o desconecta la operación del dispositivo con el que uno desea comunicarse. De esta forma, este estándar permite multiplexar las líneas de clock y soportar arquitecturas multi-esclavo \citep{WEBSITE:SPI}.
+

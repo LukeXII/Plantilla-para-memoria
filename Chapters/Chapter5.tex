@@ -3,35 +3,33 @@
 \chapter{Conclusiones} % Main chapter title
 
 \label{Chapter5} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
-Todos los capítulos deben comenzar con un breve párrafo introductorio que indique cuál es el contenido que se encontrará al leerlo.  La redacción sobre el contenido de la memoria debe hacerse en presente y todo lo referido al proyecto en pasado, siempre de modo impersonal.
 
 
 %----------------------------------------------------------------------------------------
-
-%----------------------------------------------------------------------------------------
-%	SECTION 1
+%	Chapter 5
 %----------------------------------------------------------------------------------------
 
-\section{Conclusiones generales }
+El último capítulo resume los resultados alcanzados en este trabajo, el grado de cumplimiento de los requerimientos y plantea las mejoras necesarias en etapas futuras.
 
-La idea de esta sección es resaltar cuáles son los principales aportes del trabajo realizado y cómo se podría continuar. Debe ser especialmente breve y concisa. Es buena idea usar un listado para enumerar los logros obtenidos.
+\section{Conclusiones generales}
 
-En esta sección no se deben incluir ni tablas ni gráficos.
-
-Algunas preguntas que pueden servir para completar este capítulo:
+En líneas generales, a pesar de los contratiempos encontrados durante el desarrollo, el trabajo se llevó a cabo con éxito ya que:  
 
 \begin{itemize}
-\item ¿Cuál es el grado de cumplimiento de los requerimientos?
-\item ¿Cuán fielmente se puedo seguir la planificación original (cronograma incluido)?
-\item ¿Se manifestó algunos de los riesgos identificados en la planificación? ¿Fue efectivo el plan de mitigación? ¿Se debió aplicar alguna otra acción no contemplada previamente?
-\item Si se debieron hacer modificaciones a lo planificado ¿Cuáles fueron las causas y los efectos?
-\item ¿Qué técnicas resultaron útiles para el desarrollo del proyecto y cuáles no tanto?
+\item Se obtuvo un prototipo validado del hardware, lo que permite volver a usar el mismo diseño y componentes en el producto final.
+\item Se desarrolló una primera versión validada del firmware.
+\item Se logró interiorizarse en la tecnología de los EDFA y su funcionamiento.
+\item Como se explica en la sección \ref{sec:dispImp}, el dispositivo desarrollado no es el producto final si no una primera versión que funciona como prueba de concepto y simulador del comportamiento del amplificador. Aún así, logra cumplir con los requerimientos principales establecidos por la empresa, lo que permite darlo por finalizado y pasar a la etapa de desarrollo del producto final.
+\item Se hizo uso de muchas herramientas, conceptos y metodologías incorporadas durante la cursada de la especialización, dando como resultado un trabajo profesional y facilitando su desarrollo.
 \end{itemize}
 
+\section{Trabajo futuro}
 
-%----------------------------------------------------------------------------------------
-%	SECTION 2
-%----------------------------------------------------------------------------------------
-\section{Próximos pasos}
+Con el objetivo de contar con un producto final apto para uso en tareas de integración e investigación y desarrollo, se planea avanzar en varios aspectos. Entre estos se encuentran:
 
-Acá se indica cómo se podría continuar el trabajo más adelante.
+\begin{itemize}
+\item El rediseño y la fabricación de la versión final del PCB del tester, corrigiendo los errores de diseño encontrados en el prototipo. También se deberá incluir el microcontrolador de la placa NUCLEO-144 o un equivalente junto con su interfaz de programación. Todo esto se debe hacer teniendo en cuenta su factor de forma ya que se deberá conectar a un EDFA y montarse sobre una carcasa. 
+\item Mejorar el firmware añadiendo más funcionalidades y robustecerlo corrigiendo errores.
+\item Una vez rediseñado el PCB, volver a validar el hardware y firmware utilizando un EDFA provisto por la empresa.
+\item Realizar las modificaciones necesarias en el firmware para lograr compatibilidad con los \textit{scripts} de Python que la empresa utiliza para ejecutar pruebas de aceptación y funcionamiento automatizadas.
+\end{itemize}
