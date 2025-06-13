@@ -48,7 +48,7 @@ En este capítulo se realiza una explicación detallada del diseño del hardware
 
 \section{Arquitectura de hardware}
 
-La arquitectura general de la placa fue diseñada para tener como unidad de procesamiento principal al microcontrolador STM32 de la placa NUCLEO-144 y a la pantalla LCD como periférico de entrada y salida.
+La arquitectura general de la placa fue diseñada para tener como unidad de procesamiento principal al microcontrolador STM32 de la placa NUCLEO-144 y a la pantalla LCD como periférico principal de salida de datos.
 
 La figura \ref{fig:estrucInt} muestra un diagrama completo de todo el hardware de la placa fabricada, sus entradas, salidas y el conexionado entre sus distintas partes. También incluye los periféricos utilizados en el microcontrolador y la cantidad de líneas de cada conexión.
 
@@ -59,11 +59,15 @@ La figura \ref{fig:estrucInt} muestra un diagrama completo de todo el hardware d
 \label{fig:estrucInt}
 \end{figure}
 
+Todos los bloques externos a la placa NUCLEO que se ven en el diagrama, a excepción de la pantalla LCD, fueron diseñados con componentes electrónicos básicos, es decir, sin usar módulos funcionales compactos.
+
+Los bloques internos de la placa NUCLEO que se ven en el diagrama, a excepción del conversor USB-UART, son periféricos que se encuentran embebidos en el mismo chip del microcontrolador. El conversor USB-UART, denominado STLink, se encuentra fuera de este y esta compuesto por varios componentes electrónicos.
+
 En el apéndice \ref{AppendixA} se encuentra el diseño esquemático completo de la placa.
 
 \subsection{Medición de corriente del amplificador}
 
-El principio de funcionamiento del monitor de corriente se basa en un resistor \textit{shunt}, el cual se coloca sobre la alimentación, en serie con la línea a la que se desea conocer el consumo de corriente. Para que este resistor no disipe mucha potencia y disminuya la tensión de la línea, su valor de resistencia es de 10 \si{m\ohm}. Mientras más chico sea su valor más despreciables son los efectos negativos que introducirá.
+El principio de funcionamiento del monitor de corriente se basa en un resistor \textit{shunt}, el cual se coloca sobre la alimentación, en serie con la línea a la que se desea conocer el consumo de corriente. Para que este resistor no disipe mucha potencia y disminuya la tensión de la línea, su valor de resistencia es de 10 \si{m\ohm}. Mientras menos comparable sea su valor al de la carga más despreciables serán los efectos negativos que introducirá.
 
 Sobre este resistor cae una tensión proporcional a la corriente consumida por el EDFA. Como el valor máximo de corriente consumida por el amplificador se encuentra cerca de los 2,5 A, sobre el resistor caen como máximo 25 mV, lo que frente a los 5 V de la alimentación no representa un valor significativo. Luego de sensarla, el chip amplifica 100 veces esta tensión diferencial y la conecta a uno de sus pines de salida.
 
@@ -82,7 +86,7 @@ Por otro lado, el INA301A3 cuenta con un pin de salida denominado ALERT que se a
 
 La línea de 5 V de alimentación del EDFA es controlada mediante la activación de un relé (código APAN3103) \citep{WEBSITE:RELE_DS}, lo que significa que la conexión y desconexión es mecánica. Esto se decidió implementarlo así debido a los lineamientos de protecciones necesarios para el hardware de vuelo.
 
-Como el relé necesita de 36,7 mA para activarse, no se puede conectar directamente a un pin de salida del microcontrolador ya que no puede suministrar la corriente necesaria. Por esta razón la activación se realiza mediante un transistor (código MMBT2222) \citep{WEBSITE:TRANS_DS}, funcionando como una llave (en modo saturación o corte). De esta forma, la corriente para la activación de la bobina del relé la provee directamente la fuente de alimentación de 3,3 V.
+Como el relé necesita de aproximadamente 36,7 mA para activarse, no se puede conectar directamente a un pin de salida del microcontrolador ya que este no puede suministrar la corriente necesaria. Por esta razón la activación se realiza mediante un transistor (código MMBT2222) \citep{WEBSITE:TRANS_DS}, funcionando como una llave (en modo saturación o corte). De esta forma, la corriente para la activación de la bobina del relé la provee directamente la fuente de alimentación de 3,3 V.
 
 \subsection{Medición de tensión del amplificador}
 
@@ -162,6 +166,28 @@ En la figura \ref{fig:arqFW} se puede ver un diagrama de cómo se relacionan amb
 \caption{Arquitectura de firmware.}
 \label{fig:arqFW}
 \end{figure}
+
+\subsection{Tarea del frontend}
+
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.4\textwidth]{./Figures/flowTaskDisp.png}
+\caption{Diagrama de flujo de la tarea del frontend.}
+\label{fig:taskDisp}
+\end{figure}
+
+\subsection{Tarea del backend}
+
+
+
+%\begin{figure}[H]
+%\centering
+%\includegraphics[width=0.4\textwidth]{./Figures/flowTaskApp.png}
+%\caption{Diagrama de flujo de la tarea del backend.}
+%\label{fig:taskApp}
+%\end{figure}
 
 \subsection{Máquina de estados}
 \subsubsection{Diseño}
@@ -243,7 +269,7 @@ Para filtrar ruido y posibles valores espurios que tome la señal analógica se 
 	\label{tab:configADC}
 \end{table}
 
-Siendo 12 la cantidad de bits con la que trabaja el ADC y la tensión de referencia del microcontrolador de 3,3 V se tienen 4095 valores de tensión representables, lo que da una resolución de 0,8 mV.
+Dado que el ADC opera con 12 bits y la tensión de referencia del microcontrolador es de 3,3 V, se obtienen 4096 niveles discretos (de 0 a 4095), lo que resulta en una resolución de aproximadamente 0,8 mV por cada bit menos significativo.
 
 \subsection{Driver de la pantalla LCD}
 
@@ -270,7 +296,7 @@ Debido a la cantidad de píxeles de la pantalla LCD y el tiempo que le toma al p
 
 \subsection{Driver de UART}
 
-El controlador de UART para ambas interfaces se configura de modo que genere una interrupción en el programa luego de recibir una cadena de caracteres. Esto funciona de forma que los caracteres se guardan en el buffer de entrada hasta que la línea de datos pasa a estar inactiva.
+El controlador de UART para ambas interfaces se configura de modo que genere una interrupción en el programa luego de recibir una cadena de caracteres. Esto funciona de forma que los caracteres que se reciben se guardan continuamente en un buffer de entrada hasta que la línea de datos pasa a estar inactiva. Luego se atiende la interrupción y en ella se copia al programa principal la cadena de caracteres del buffer para ser analizada.
 
 En la tabla \ref{tab:configUART} se puede ver la configuración de ambas interfaces UART.
 
@@ -339,19 +365,19 @@ El PCB fue enviado a fabricar a la empresa china JLCPCB y consta de 4 capas: dos
      \centering
      \begin{subfigure}{\textwidth}
          \centering
-         \includegraphics[width=.65\textwidth]{./Figures/placa2.jpg}
+         \includegraphics[width=.75\textwidth]{./Figures/placa2.jpg}
          \caption{Lado superior del PCB.}
          \label{fig:placa1}
      \end{subfigure}
      \begin{subfigure}{\textwidth}
          \centering
-         \includegraphics[width=.65\textwidth]{./Figures/placa3.jpg}
+         \includegraphics[width=.75\textwidth]{./Figures/placa3.jpg}
          \caption{Lado inferior del PCB.}
          \label{fig:placa2}
      \end{subfigure}
      \begin{subfigure}{\textwidth}
          \centering
-         \includegraphics[width=.65\textwidth]{./Figures/placa1.jpg}
+         \includegraphics[width=.75\textwidth]{./Figures/placa1.jpg}
          \caption{Placa ensamblada.}
          \label{fig:placa3}
      \end{subfigure}

@@ -32,7 +32,7 @@ El satélite en GEO, en cambio, al tener el mismo período orbital que la Tierra
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.8\textwidth]{./Figures/propuesta_skyloom.png}
+\includegraphics[width=0.9\textwidth]{./Figures/propuesta_skyloom.png}
 \caption{Propuesta de la empresa Skyloom Global\protect\footnotemark.}
 \label{fig:propSky}
 \end{figure}
@@ -68,7 +68,7 @@ La interfaz con el EDFA permite controlarlo y consultar diversos parámetros de 
 
 Si bien hoy en día los EDFA son ampliamente utilizados en varias aplicaciones de optoelectrónica, en la actualidad no existe un estándar para la interfaz eléctrica que poseen estos amplificadores. Esto lleva a que cada fabricante defina una propia para sus productos y que el usuario tenga que adaptar su hardware para poder usarlos.
 
-Para el caso en que se necesite contar con un tester o una placa de depuración para hacer uso o pruebas sobre el dispositivo, el usuario debe adquirir una del mismo fabricante del amplificador por esta misma razón. Actualmente, la empresa hace uso de una de estas placas, la cual se puede ver en la figura \ref{fig:placaDebug}.
+Para poder realizar pruebas sobre el EDFA de forma individual previo a la integración al producto final, se debe contar con un tester o una placa de depuración dedicada que permita, entre otras cosas, verificar su correcto funcionamiento. Al no existir en el mercado un producto estandarizado para este tipo de amplificadores, el usuario debe adquirir una que ofrece el mismo fabricante del EDFA. Actualmente, la empresa hace uso de una de estas placas, la cual se puede ver en la figura \ref{fig:placaDebug}.
 
 \begin{figure}[H]
 \centering
@@ -77,7 +77,7 @@ Para el caso en que se necesite contar con un tester o una placa de depuración 
 \label{fig:placaDebug}
 \end{figure}
 
-Esta placa, denominada EDFA IFC (Interface Card), cuenta con la electrónica necesaria para proveer al usuario algunas funcionalidades básicas que le permiten hacer uso del amplificador. Contiene una interfaz USB-UART para usarse junto con una computadora, LEDs para las señales de alarmas y conectores para la alimentación del EDFA.
+Esta placa, denominada EDFA IFC (Interface Card), se conecta directamente al puerto del EDFA y cuenta con la electrónica necesaria para proveer al usuario algunas funcionalidades básicas que le permiten hacer uso del amplificador. Contiene una interfaz USB-UART para enviar comandos al EDFA mediante una computadora, LEDs para las señales de alarmas, llaves para las señales de control y conectores para la alimentación del EDFA.
 
 \section{Motivación}
 
