@@ -154,7 +154,7 @@ Como se puede ver en la figura \ref{fig:estrucInt}, el dispositivo debe contar c
 
 Como se mencionó anteriormente, la arquitectura del firmware del trabajo tiene como base la utilización de FreeRTOS y los recursos que ofrece. Esto permite la implementación de un diseño eficaz y sencillo mediante la división en dos partes bien definidas: la parte de procesamiento de datos y control (o backend) y la parte gráfica que interactúa con el usuario (o frontend). Para implementar cada una de ellas se utilizó una tarea o proceso, recurso provisto por el sistema operativo. Como la velocidad de reloj del microcontrolador es alta, se puede asumir que estas se ejecutan de forma independiente y simultánea. Por otro lado, estas comparten ciertas variables cuyo acceso debe ser controlado para que no existan colisiones de lectura o escritura. Este acceso es gestionado por un semáforo.
 
-El proceso del backend tiene como tarea principal ejecutar una máquina de estados y se encarga de controlar el estado general del dispositivo en todo momento. Esto significa que lee los datos de entrada, los procesa y en base a ellos toma decisiones que terminan por afectar las señales de salida y en última instancia a la tarea del display.
+El proceso del backend tiene como tarea principal ejecutar una máquina de estados y se encarga de controlar el estado general del dispositivo en todo momento. Esto significa que lee los datos de entrada, los procesa y en base a ellos toma decisiones que terminan por afectar las señales de salida y en última instancia a la tarea del display. A demás, ejecuta una consola de control que le permite al usuario interactuar con el tester e indirectamente con el EDFA. 
 
 Por otro lado, el proceso del frontend esta asociado al display LCD y tiene como objetivo principal la interacción directa con el usuario. Para ello, debe leer la información de salida del backend, presentarla en la pantalla y, a su vez, detectar cuándo y dónde el usuario presiona sobre ella y enviar estos datos al backend mediante recursos compartidos. 
 
@@ -167,9 +167,36 @@ En la figura \ref{fig:arqFW} se puede ver un diagrama de cómo se relacionan amb
 \label{fig:arqFW}
 \end{figure}
 
+\subsection{Tarea del backend}
+
+El proceso del backend ejecuta las funciones más importantes del programa de forma continua. Estas son la ejecución de la máquina de estados, la toma de las mediciones de las variables, la administración de la consola de control y el envío de datos hacia el frontend. 
+
+Luego del inicio del programa por primera vez y una vez que todo el hardware se ha configurado, la tarea del backend se crea y comienza a ejecutarse sobre el sistema operativo. Lo primero que esta hace es inicializar todas las variables que usará e iniciar la máquina de estados. En este momento se asigna el estado \textit{Idle} como el inicial.
+
+Luego comienza la ejecución de la parte cíclica de la tarea. Primero se llama al generador de eventos de la máquina de estados, que puede devolver cualquiera de los eventos válidos para el programa. Este puede tener como origen la consola de control, la activación de alguna alarma, algún valor fuera de rango, etc.
+
+Una vez que se tiene el evento se lo ingresa a la máquina de estados, se ejecuta la función correspondiente y se actualiza el estado. Luego se toman las mediciones de todas las variables de interés y se lee el estado de las alarmas del EDFA. Teniendo los datos recién adquiridos se toma el semáforo para escribir estos en la variable compartida con el frontend.
+
+Por último, se espera a que hayan transcurrido 20 milisegundos desde la medición anterior antes de volver a ejecutar el lazo. En la figura \ref{fig:taskApp} se puede ver un diagrama de flujo de la tarea del backend.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.4\textwidth]{./Figures/flowTaskApp.png}
+\caption{Diagrama de flujo de la tarea del backend.}
+\label{fig:taskApp}
+\end{figure}
+
 \subsection{Tarea del frontend}
 
+El proceso del frontend ejecuta de forma cíclica el refresco de la pantalla LCD, es decir, dibuja la pantalla en su totalidad coloreando los píxeles. A bajo nivel, esto significa escribir el registro de la memoria asociado a cada píxel con un valor que corresponde a un color determinado. 
 
+Debido a la cantidad de píxeles de la pantalla LCD y el tiempo que le toma al programa actualizarla en su totalidad, se decidió actualizarla a una tasa de diez veces por segundo (cada 0,1 seg.). Teniendo en cuenta que en esta aplicación los eventos visibles ocurren a baja velocidad, aumentar la tasa de muestreo no aportaría una mejora significativa. En cuanto a las variables medidas, para poder ser legibles, sus valores se actualizan solamente dos veces por segundo.
+
+El proceso de refresco comienza cuando la tarea toma el semáforo que le permite acceder a la variable compartida con el proceso de backend. El frontend copia los valores localmente y libera el semáforo. Luego realiza la actualización de toda la pantalla con los valores obtenidos, a excepción de las mediciones analógicas.
+
+A continuación el programa verifica si ya transcurrió medio segundo desde la ultima actualización de los valores analógicos. En caso afirmativo, realiza el mismo proceso que antes pero con los valores de las mediciones. Si no pasó dicho tiempo, continúa y espera que trascurra 0,1 segundo antes de realizar la próxima actualización de la pantalla.
+
+En la figura \ref{fig:taskDisp} se puede ver un diagrama de flujo general de la tarea de frontend.
 
 \begin{figure}[H]
 \centering
@@ -177,17 +204,6 @@ En la figura \ref{fig:arqFW} se puede ver un diagrama de cómo se relacionan amb
 \caption{Diagrama de flujo de la tarea del frontend.}
 \label{fig:taskDisp}
 \end{figure}
-
-\subsection{Tarea del backend}
-
-
-
-%\begin{figure}[H]
-%\centering
-%\includegraphics[width=0.4\textwidth]{./Figures/flowTaskApp.png}
-%\caption{Diagrama de flujo de la tarea del backend.}
-%\label{fig:taskApp}
-%\end{figure}
 
 \subsection{Máquina de estados}
 \subsubsection{Diseño}
@@ -215,21 +231,34 @@ En la figura \ref{fig:diagFSM} se puede ver un diagrama simplificado de transici
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.9\textwidth]{./Figures/diagFSM.png}
+\includegraphics[width=0.85\textwidth]{./Figures/diagFSM.png}
 \caption{Diagrama simplificado de la máquina de estados.}
 \label{fig:diagFSM}
 \end{figure}
 
 \subsubsection{Implementación}
 
-%\begin{figure}[H]
-%\centering
-%\includegraphics[width=0.9\textwidth]{./Figures/typesFSM.png}
-%\caption{Tipos de datos de la FSM.}
-%\label{fig:typesFSM}
-%\end{figure}
+Para implementar de forma conveniente la máquina de estados lo que se hizo fue usar el tipo de dato que se ve en la figura \ref{fig:typeFSM}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.6\textwidth]{./Figures/typeFSM.png}
+\caption{Tipo de dato de la máquina de estados.}
+\label{fig:typeFSM}
+\end{figure}
+
+Si se interpreta a la máquina de estados como una tabla de doble entrada, donde los eventos se colocan en las columnas y los estados en las filas, cada intersección representa la función a ejecutar cuando se da una transición. Este tipo de dato contiene tres variables y representaría una celda de dicha tabla:
+
+\begin{itemize}
+\item \textbf{nextState}: puntero a otra variable del mismo tipo. Indica el próximo estado de la máquina luego de ejecutar la función.
+\item \textbf{event}: evento definido en una lista con todos posibles. Indica bajo que evento se ejecutará la función apuntada por esta celda.
+\item \textbf{action}: puntero a función. Apunta a la función a ejecutar propiamente dicha.
+\end{itemize}
+
+Por lo tanto, si se define un arreglo de este tipo de dato para cada uno de los estados de la máquina y se lo llena con la cantidad de elementos correspondientes a cada posible transición, se cuenta con una representación completa de toda la máquina.
 
 \subsection{Capa de abstracción del amplificador}
+\label{sec:secHAL}
 
 Con el objetivo de generar una estructura jerárquica, se decidió crear una capa adicional que se ubica por encima de los drivers de la pantalla LCD, de la pantalla táctil, de la UART, de las señales analógicas y de los GPIO provistos por la HAL del fabricante (ST). A su vez, los drivers de la pantalla LCD y la pantalla táctil se implementan con base en el driver de SPI, ya que debe hacer uso de las funciones de bajo nivel para el envío y recepción de datos y comandos. Para el ADC también se creó una pequeña capa superior que permite obtener todos los valores de las señales analógicas en formato de punto flotante.
 
@@ -292,7 +321,16 @@ Como se mencionó en la sección \ref{sec:conLCD}, cada bus SPI (LCD y pantalla 
 	\label{tab:configSPI}
 \end{table}
 
-Debido a la cantidad de píxeles de la pantalla LCD y el tiempo que le toma al programa actualizarla en su totalidad, se decidió actualizarla a una tasa de diez veces por segundo. Teniendo en cuenta que en esta aplicación los eventos visibles ocurren a baja velocidad, aumentar la tasa de muestreo no aportaría una mejora significativa. En cuanto a las variables, para poder ser legibles, sus valores se actualizan solamente dos veces por segundo.
+Como se mencionó en la sección \ref{sec:secHAL}, este driver está implementado sobre el de SPI. A su vez, las funciones que contiene también tienen cierta jerarquía entre si, permitiendo hacer funciones complejas usando otras más básicas. Tomando como ejemplo la función para dibujar un cuadrado sin relleno de color se tienen, de mayor a menor abstracción, las siguientes funciones:
+
+\begin{itemize}
+\item \textbf{LCD\_Draw\_Hollow\_Rectangle\_Coord}: recibe 2 pares de coordenadas para los vértices y el color. Llama 2 veces a la función que dibuja una línea horizontal y dos veces a la que dibuja una línea vertical, con la coordenada de origen y el largo correspondiente.
+\item \textbf{LCD\_Draw\_Horizontal\_Line}: recibe la coordenada de origen, el largo y el color de la línea. Llama a la función que define la sección de la memoria del chip asociada a los píxeles a dibujar. Luego llama a la función que transmite el color a esta sección de memoria.
+\item \textbf{LCD\_Draw\_Colour\_Burst}: transmite el color de los píxeles llamando a la función de transmisión de datos del SPI.
+\item \textbf{LCD\_Set\_Address}: envía los comandos y direcciones de registros para definir la zona de memoria a escribir.
+\item \textbf{LCD\_Write\_Data}: envía el dato recibido llamando a la función de transmisión de datos del SPI. Pone la señal DC del chip del LCD en alto, indicando que el valor transmitido es un dato.
+\item \textbf{LCD\_Write\_Command}: envía el comando recibido llamando a la función de transmisión de datos del SPI. Pone la señal DC del chip del LCD en bajo, indicando que el valor transmitido es un comando.
+\end{itemize}
 
 \subsection{Driver de UART}
 
@@ -324,7 +362,22 @@ En la tabla \ref{tab:configUART} se puede ver la configuración de ambas interfa
 
 La consola de control brinda una pequeña interfaz que funciona como intermediario entre el usuario y el amplificador, permitiéndole consultar y controlar su estado en todo momento. También se utiliza para ingresar valores al dispositivo, tales como los niveles de tensión y corriente máximos admitidos.
 
-La consola corre sobre la tarea del backend y puede inyectar eventos a la máquina de estados. Su funcionamiento es similar al de cualquier consola, usando un esquema de comando y argumento. La tabla \ref{tab:tablacmd} lista todos los pares comando/argumento que puede recibir la consola.
+Las funciones de la consola se ejecutan en la tarea del backend, puede inyectar eventos a la máquina de estados y utiliza el bus USB-UART para el flujo de caracteres. Su funcionamiento es similar al de cualquier consola o línea de comando y se basa en el ingreso de comandos en formato instrucción/argumento.
+
+Su funcionamiento básico es el siguiente: luego de recibir una cadena de caracteres por UART y recuperarla en el backend, como se explicó en la subsección anterior, esta se pasa por lo que se denomina un \textit{parser}. Este lo que hace es primero identificar los caracteres de espacio que contiene la cadena para delimitar y extraer los comandos y argumentos (subcadenas). A continuación, se verifica si el comando ingresado coincide con alguno de los comandos válidos mediante la comparación de cadenas. En caso que este sea válido, se pasa a evaluar el argumento en base al tipo de dato que espera el comando. Por ejemplo, si el comando espera un número positivo se verifica que la cadena no contenga letras, que el valor sea positivo y que se encuentre dentro de los valores máximos y mínimos.
+
+Si ambos comando y argumento son válidos entonces el programa generará el evento correspondiente a ese comando para luego ingresar a la máquina de estados. En caso que alguno no lo sea, ya sea por error de sintaxis o de argumento fuera de rango, no se generará ningún evento y la consola imprimirá "Comando inválido".
+
+En la figura \ref{fig:flowCmd} se puede ver el diagrama de flujo desde que se recibe la cadena de caracteres en el buffer de la UART hasta la generación del evento correspondiente.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{./Figures/flowCmd.png}
+\caption{Diagrama de flujo de la consola de control.}
+\label{fig:flowCmd}
+\end{figure}
+
+La tabla \ref{tab:tablacmd} lista todos los pares comando/argumento que puede recibir la consola.
 
 \begin{table}[H]
 	\centering

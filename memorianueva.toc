@@ -30,34 +30,35 @@
 \contentsline {subsection}{\numberline {3.1.6}Indicadores de potencia óptica}{18}{subsection.3.1.6}%
 \contentsline {subsection}{\numberline {3.1.7}Interfaz UART}{19}{subsection.3.1.7}%
 \contentsline {section}{\numberline {3.2}Arquitectura de firmware}{19}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Tarea del frontend}{21}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}Máquina de estados}{21}{subsection.3.2.2}%
-\contentsline {subsubsection}{Diseño}{21}{section*.17}%
-\contentsline {subsubsection}{Implementación}{23}{section*.19}%
-\contentsline {subsection}{\numberline {3.2.3}Capa de abstracción del amplificador}{23}{subsection.3.2.3}%
-\contentsline {subsection}{\numberline {3.2.4}Driver del ADC}{24}{subsection.3.2.4}%
-\contentsline {subsection}{\numberline {3.2.5}Driver de la pantalla LCD}{24}{subsection.3.2.5}%
-\contentsline {subsection}{\numberline {3.2.6}Driver de UART}{25}{subsection.3.2.6}%
-\contentsline {subsection}{\numberline {3.2.7}Consola de control}{25}{subsection.3.2.7}%
-\contentsline {section}{\numberline {3.3}Dispositivo implementado}{26}{section.3.3}%
-\contentsline {chapter}{\numberline {4}Ensayos y resultados}{29}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Instrumental utilizado}{29}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Pruebas de hardware}{29}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Prueba del monitor de corriente}{30}{subsection.4.2.1}%
-\contentsline {section}{\numberline {4.3}Pruebas de firmware}{30}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}Prueba del monitor de tensión}{31}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}Prueba del monitor de corriente}{31}{subsection.4.3.2}%
-\contentsline {subsection}{\numberline {4.3.3}Prueba de la pantalla LCD}{32}{subsection.4.3.3}%
-\contentsline {subsection}{\numberline {4.3.4}Prueba de la consola de control}{33}{subsection.4.3.4}%
-\contentsline {section}{\numberline {4.4}Pruebas de integración}{34}{section.4.4}%
-\contentsline {subsection}{\numberline {4.4.1}Funcionamiento normal}{34}{subsection.4.4.1}%
-\contentsline {subsection}{\numberline {4.4.2}Detección de alarmas}{34}{subsection.4.4.2}%
-\contentsline {subsection}{\numberline {4.4.3}Detección de sobrecorriente}{35}{subsection.4.4.3}%
-\contentsline {section}{\numberline {4.5}Comparación del prototipo con producto existente}{36}{section.4.5}%
-\contentsline {section}{\numberline {4.6}Cumplimiento de requerimientos}{36}{section.4.6}%
-\contentsline {chapter}{\numberline {5}Conclusiones}{37}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Conclusiones generales}{37}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Trabajo futuro}{37}{section.5.2}%
-\contentsline {chapter}{\numberline {A}Circuito esquemático completo}{39}{appendix.Alph1}%
-\contentsline {chapter}{\numberline {B}Banco de ensayos}{43}{appendix.Alph2}%
-\contentsline {chapter}{Bibliografía}{45}{appendix*.42}%
+\contentsline {subsection}{\numberline {3.2.1}Tarea del backend}{20}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Tarea del frontend}{21}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}Máquina de estados}{23}{subsection.3.2.3}%
+\contentsline {subsubsection}{Diseño}{23}{section*.18}%
+\contentsline {subsubsection}{Implementación}{25}{section*.20}%
+\contentsline {subsection}{\numberline {3.2.4}Capa de abstracción del amplificador}{25}{subsection.3.2.4}%
+\contentsline {subsection}{\numberline {3.2.5}Driver del ADC}{26}{subsection.3.2.5}%
+\contentsline {subsection}{\numberline {3.2.6}Driver de la pantalla LCD}{26}{subsection.3.2.6}%
+\contentsline {subsection}{\numberline {3.2.7}Driver de UART}{27}{subsection.3.2.7}%
+\contentsline {subsection}{\numberline {3.2.8}Consola de control}{28}{subsection.3.2.8}%
+\contentsline {section}{\numberline {3.3}Dispositivo implementado}{30}{section.3.3}%
+\contentsline {chapter}{\numberline {4}Ensayos y resultados}{33}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Instrumental utilizado}{33}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Pruebas de hardware}{33}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Prueba del monitor de corriente}{34}{subsection.4.2.1}%
+\contentsline {section}{\numberline {4.3}Pruebas de firmware}{34}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Prueba del monitor de tensión}{35}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Prueba del monitor de corriente}{35}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}Prueba de la pantalla LCD}{36}{subsection.4.3.3}%
+\contentsline {subsection}{\numberline {4.3.4}Prueba de la consola de control}{37}{subsection.4.3.4}%
+\contentsline {section}{\numberline {4.4}Pruebas de integración}{38}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Funcionamiento normal}{38}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}Detección de alarmas}{38}{subsection.4.4.2}%
+\contentsline {subsection}{\numberline {4.4.3}Detección de sobrecorriente}{39}{subsection.4.4.3}%
+\contentsline {section}{\numberline {4.5}Comparación del prototipo con el producto existente}{40}{section.4.5}%
+\contentsline {section}{\numberline {4.6}Cumplimiento de requerimientos}{40}{section.4.6}%
+\contentsline {chapter}{\numberline {5}Conclusiones}{41}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Conclusiones generales}{41}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Trabajo futuro}{41}{section.5.2}%
+\contentsline {chapter}{\numberline {A}Circuito esquemático completo}{43}{appendix.Alph1}%
+\contentsline {chapter}{\numberline {B}Banco de ensayos}{47}{appendix.Alph2}%
+\contentsline {chapter}{Bibliografía}{49}{appendix*.45}%

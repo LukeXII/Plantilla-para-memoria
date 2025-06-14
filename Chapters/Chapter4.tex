@@ -147,6 +147,8 @@ En la figura \ref{fig:funcNorm} se puede ver el estado de la pantalla LCD durant
 \label{fig:funcNorm}
 \end{figure}
 
+De aquí se observa que los valores límites, las alarmas y las variables medidas se actualizan con la frecuencia pretendida en el programa.
+
 \subsection{Detección de alarmas}
 
 Cuando alguna de las alarmas se activa mientras la salida óptica del amplificador permanece encendida, esta se debe apagar inmediatamente mediante la señal de control OUT\_POW\_MUTE, ya que de no hacerlo, esto podría dañar el EDFA.
@@ -186,22 +188,28 @@ En la figura \ref{fig:detecOC} se puede ver la conmutación de la señal que con
 
 Se puede observar que el tiempo de retardo que existe entre la detección de la sobrecorriente y la desconexión del relé es menor a 1~\textmu s, valor que cumple holgadamente con el requerimiento 4.1 especificado en la sección \ref{sec:reqs}.
 
-\section{Comparación del prototipo con producto existente}
+\section{Comparación del prototipo con el producto existente}
+
+En la tabla \ref{tab:comparacionDisp} se puede ver una comparación entre las funcionalidades del producto existente y las del prototipo desarollado en este trabajo.
 
 \begin{table}[H]
 	\centering
 	\caption{Comparación entre el dispositivo implementado y el existente.}
-	\begin{tabular}{p{3cm} c p{6cm}}
+	\begin{tabular}{p{6cm} c c}
 		\toprule
-		\textbf{Item} & \textbf{Modelo} & \textbf{Descripción} \\
+		\textbf{Característica} & \textbf{Producto existente} & \textbf{Dispositivo desarrollado} \\
 		\midrule
-		Multímetro			& UNI-T UT61A		& Multímetro digital autorango de alta precisión. \\
-		Fuente de tensión	& KM GP-300ATX		& Fuente de computadora de 400 W. \\
-		Resistencia de potencia variable		& AVT05006E25R00KE	& Resistencia de potencia de alambre bobinado de 25 Ohm / 50 W. \\
-		Potenciómetro							& 3590S-1-201L & Potenciómetro de 200 Ohm / 2 W y 10 vueltas para panel. \\
-		Conversor USB a UART					& EM7-6043		& Conversor USB a serie TTL CH-340. \\
-		Cables varios							& - 			& Cables dupont y unipolar de 2,5 mm2. \\
-		PC										& -				& Computadora de escritorio con software PuTTY (cliente de terminal). \\
+		Interfaz UART	& Sí	& Sí \\
+		Testigo de alarmas	& Sí	& Sí \\
+		Llaves para señales de control		& Sí	& Sí \\
+		Alimentación de EDFA				& Sí	& Sí \\
+		Detección de sobrecorriente	& No & Sí \\
+		Detección de sobretensión		& No & Sí \\
+		Detección de baja tensión		& No & Sí \\
+		Protección de potencia óptica de entrada	& No & Sí \\
+		Protección de potencia óptica de salida		& No & Sí \\
+		Desconexión automática de EDFA en caso de alarma & No & Sí \\
+		Protección contra descarga electrostática en pines & No & Sí \\
 		\bottomrule
 		\hline
 	\end{tabular}

@@ -12,24 +12,27 @@
 \contentsline {figure}{\numberline {3.2}{\ignorespaces Esquema del monitor de corriente.}}{16}{figure.caption.13}%
 \contentsline {figure}{\numberline {3.3}{\ignorespaces Circuito del monitor de corriente.}}{17}{figure.caption.14}%
 \contentsline {figure}{\numberline {3.4}{\ignorespaces Arquitectura de firmware.}}{20}{figure.caption.15}%
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Diagrama de flujo de la tarea del frontend.}}{21}{figure.caption.16}%
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Diagrama simplificado de la máquina de estados.}}{23}{figure.caption.18}%
-\contentsline {figure}{\numberline {3.7}{\ignorespaces Capa de abstracción del EDFA.}}{24}{figure.caption.20}%
-\contentsline {figure}{\numberline {3.8}{\ignorespaces Placa fabricada para el trabajo.}}{27}{figure.caption.25}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Diagrama de flujo de la tarea del backend.}}{21}{figure.caption.16}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Diagrama de flujo de la tarea del frontend.}}{23}{figure.caption.17}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Diagrama simplificado de la máquina de estados.}}{24}{figure.caption.19}%
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Tipo de dato de la máquina de estados.}}{25}{figure.caption.21}%
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Capa de abstracción del EDFA.}}{26}{figure.caption.22}%
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Diagrama de flujo de la consola de control.}}{29}{figure.caption.26}%
+\contentsline {figure}{\numberline {3.11}{\ignorespaces Placa fabricada para el trabajo.}}{31}{figure.caption.28}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Error porcentual de la constante de conversión de corriente.}}{30}{figure.caption.27}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Error porcentual de la medición de tensión.}}{31}{figure.caption.28}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Error porcentual de la medición de corriente.}}{32}{figure.caption.29}%
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Pantalla LCD durante el encendido de la placa.}}{33}{figure.caption.30}%
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Uso de la consola de control.}}{33}{figure.caption.31}%
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Pantalla LCD durante funcionamiento normal.}}{34}{figure.caption.32}%
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Detección de alarma y apagado de salida óptica.}}{35}{figure.caption.33}%
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Pantalla LCD luego de detección de alarma.}}{35}{figure.caption.34}%
-\contentsline {figure}{\numberline {4.9}{\ignorespaces Detección de sobrecorriente y desconexión del EDFA.}}{36}{figure.caption.35}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Error porcentual de la constante de conversión de corriente.}}{34}{figure.caption.30}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Error porcentual de la medición de tensión.}}{35}{figure.caption.31}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Error porcentual de la medición de corriente.}}{36}{figure.caption.32}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Pantalla LCD durante el encendido de la placa.}}{37}{figure.caption.33}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Uso de la consola de control.}}{37}{figure.caption.34}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Pantalla LCD durante funcionamiento normal.}}{38}{figure.caption.35}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Detección de alarma y apagado de salida óptica.}}{39}{figure.caption.36}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Pantalla LCD luego de detección de alarma.}}{39}{figure.caption.37}%
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Detección de sobrecorriente y desconexión del EDFA.}}{40}{figure.caption.38}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {A.1}{\ignorespaces Circuito esquemático. Conectores.}}{40}{figure.caption.37}%
-\contentsline {figure}{\numberline {A.2}{\ignorespaces Circuito esquemático. Interfaz con EDFA.}}{41}{figure.caption.38}%
-\contentsline {figure}{\numberline {A.3}{\ignorespaces Circuito esquemático. Alimentación del EDFA.}}{42}{figure.caption.39}%
+\contentsline {figure}{\numberline {A.1}{\ignorespaces Circuito esquemático. Conectores.}}{44}{figure.caption.40}%
+\contentsline {figure}{\numberline {A.2}{\ignorespaces Circuito esquemático. Interfaz con EDFA.}}{45}{figure.caption.41}%
+\contentsline {figure}{\numberline {A.3}{\ignorespaces Circuito esquemático. Alimentación del EDFA.}}{46}{figure.caption.42}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {B.1}{\ignorespaces Banco de ensayos.}}{43}{figure.caption.40}%
+\contentsline {figure}{\numberline {B.1}{\ignorespaces Banco de ensayos.}}{47}{figure.caption.43}%
