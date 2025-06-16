@@ -17,6 +17,10 @@ Reallocating 'name_of_file' (item size: 1) to 22 items.
 A level-1 auxiliary file: Chapters/Chapter4.aux
 Reallocating 'name_of_file' (item size: 1) to 22 items.
 A level-1 auxiliary file: Chapters/Chapter5.aux
+Reallocating 'name_of_file' (item size: 1) to 25 items.
+A level-1 auxiliary file: Appendices/AppendixA.aux
+Reallocating 'name_of_file' (item size: 1) to 25 items.
+A level-1 auxiliary file: Appendices/AppendixB.aux
 Reallocating 'glb_str_end' (item size: 4) to 20 items.
 Reallocating 'glb_str_ptr' (item size: 4) to 20 items.
 Reallocating 'global_strs' (item size: 1) to 4000000 items.
@@ -34,35 +38,35 @@ Reallocating 'singl_function' (item size: 4) to 100 items.
 Reallocating 'singl_function' (item size: 4) to 100 items.
 Database file #1: memorianueva-blx.bib
 Database file #2: references.bib
-Biblatex version: 3.19
+Biblatex version: 3.20
 Reallocating 'wiz_functions' (item size: 4) to 9000 items.
 Reallocating 'singl_function' (item size: 4) to 100 items.
 You've used 30 entries,
-            6399 wiz_defined-function locations,
-            1353 strings with 12528 characters,
-and the built_in function-call counts, 140876 in all, are:
+            6402 wiz_defined-function locations,
+            1355 strings with 12583 characters,
+and the built_in function-call counts, 141021 in all, are:
 = -- 6710
 > -- 8719
 < -- 803
 + -- 7820
 - -- 6485
-* -- 6815
+* -- 6844
 := -- 16200
 add.period$ -- 0
 call.type$ -- 30
 change.case$ -- 171
 chr.to.int$ -- 528
 cite$ -- 58
-duplicate$ -- 13418
-empty$ -- 12094
+duplicate$ -- 13447
+empty$ -- 12123
 format.name$ -- 1279
-if$ -- 25133
+if$ -- 25162
 int.to.chr$ -- 0
 int.to.str$ -- 79
 missing$ -- 0
 newline$ -- 603
 num.names$ -- 1130
-pop$ -- 9599
+pop$ -- 9628
 preamble$ -- 1
 purify$ -- 255
 quote$ -- 0

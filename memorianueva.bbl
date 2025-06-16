@@ -1,5 +1,5 @@
 % $ biblatex auxiliary file $
-% $ biblatex bbl format version 3.2 $
+% $ biblatex bbl format version 3.3 $
 % Do not modify the above lines!
 %
 % This is an auxiliary file used by the 'biblatex' package.
@@ -16,8 +16,8 @@
   {}
 \endgroup
 
-\datalist[entry]{none/global//global/global}
-  \entry{WEBSITE:LEO}{misc}{}
+\datalist[entry]{none/global//global/global/global}
+  \entry{WEBSITE:LEO}{misc}{}{}
     \name{author}{1}{}{%
       {{hash=W}{%
          family={Wikipedia},
@@ -37,7 +37,7 @@
     \field{urlyear}{2024}
   \endentry
 
-  \entry{WEBSITE:GEO}{misc}{}
+  \entry{WEBSITE:GEO}{misc}{}{}
     \name{author}{1}{}{%
       {{hash=W}{%
          family={Wikipedia},
@@ -57,7 +57,7 @@
     \field{urlyear}{2024}
   \endentry
 
-  \entry{WEBSITE_SKY}{misc}{}
+  \entry{WEBSITE_SKY}{misc}{}{}
     \field{labeltitlesource}{title}
     \field{title}{Skyloom Global}
     \verb{url}
@@ -68,7 +68,7 @@
     \field{urlyear}{2023}
   \endentry
 
-  \entry{WEBSITE:EDFA2}{misc}{}
+  \entry{WEBSITE:EDFA2}{misc}{}{}
     \name{author}{1}{}{%
       {{hash=SFO}{%
          family={Share},
@@ -90,7 +90,7 @@
     \field{urlyear}{2023}
   \endentry
 
-  \entry{DOC_REQ}{misc}{}
+  \entry{DOC_REQ}{misc}{}{}
     \name{author}{1}{}{%
       {{hash=CIL}{%
          family={Constantino},
@@ -112,7 +112,7 @@
     \field{year}{2022}
   \endentry
 
-  \entry{WEBSITE:BANDAS}{misc}{}
+  \entry{WEBSITE:BANDAS}{misc}{}{}
     \name{author}{1}{}{%
       {{hash=IF}{%
          family={Inc.},
@@ -134,7 +134,7 @@
     \field{urlyear}{2024}
   \endentry
 
-  \entry{WEBSITE:EDFA1}{misc}{}
+  \entry{WEBSITE:EDFA1}{misc}{}{}
     \name{author}{1}{}{%
       {{hash=ERP}{%
          family={Encyclopedia},
@@ -156,7 +156,7 @@
     \field{urlyear}{2023}
   \endentry
 
-  \entry{WEBSITE:FIBRA}{misc}{}
+  \entry{WEBSITE:FIBRA}{misc}{}{}
     \name{author}{1}{}{%
       {{hash=W}{%
          family={Wikipedia},
@@ -176,7 +176,7 @@
     \field{urlyear}{2023}
   \endentry
 
-  \entry{WEBSITE:EMISSION}{misc}{}
+  \entry{WEBSITE:EMISSION}{misc}{}{}
     \name{author}{1}{}{%
       {{hash=W}{%
          family={Wikipedia},
@@ -196,7 +196,7 @@
     \field{urlyear}{2023}
   \endentry
 
-  \entry{WEBSITE:EDFA3}{misc}{}
+  \entry{WEBSITE:EDFA3}{misc}{}{}
     \name{author}{1}{}{%
       {{hash=T}{%
          family={ThorLabs},
@@ -216,7 +216,7 @@
     \field{urlyear}{2024}
   \endentry
 
-  \entry{WEBSITE:MICROD_DS}{misc}{}
+  \entry{WEBSITE:MICROD_DS}{misc}{}{}
     \name{author}{1}{}{%
       {{hash=A}{%
          family={Amphenol},
@@ -236,7 +236,7 @@
     \field{urlyear}{2024}
   \endentry
 
-  \entry{STM32F429}{misc}{}
+  \entry{STM32F429}{misc}{}{}
     \name{author}{1}{}{%
       {{hash=MS}{%
          family={Microelectronics},
@@ -255,7 +255,7 @@
     \endverb
   \endentry
 
-  \entry{NUCLEO144}{misc}{}
+  \entry{NUCLEO144}{misc}{}{}
     \name{author}{1}{}{%
       {{hash=MS}{%
          family={Microelectronics},
@@ -274,7 +274,7 @@
     \endverb
   \endentry
 
-  \entry{INA301}{misc}{}
+  \entry{INA301}{misc}{}{}
     \name{author}{1}{}{%
       {{hash=IT}{%
          family={Instruments},
@@ -293,7 +293,7 @@
     \endverb
   \endentry
 
-  \entry{MSP2807}{misc}{}
+  \entry{MSP2807}{misc}{}{}
     \name{author}{1}{}{%
       {{hash=L}{%
          family={LCDWiki},
@@ -313,7 +313,7 @@
     \field{urlyear}{2023}
   \endentry
 
-  \entry{WEBSITE:1}{misc}{}
+  \entry{WEBSITE:1}{misc}{}{}
     \name{author}{1}{}{%
       {{hash=W}{%
          family={Wikipedia},
@@ -333,7 +333,7 @@
     \field{urlyear}{2023}
   \endentry
 
-  \entry{WEBSITE:FREERTOS}{misc}{}
+  \entry{WEBSITE:FREERTOS}{misc}{}{}
     \name{author}{1}{}{%
       {{hash=A}{%
          family={AWS},
@@ -354,7 +354,7 @@
     \field{urlyear}{2023}
   \endentry
 
-  \entry{WEBSITE:HAL}{misc}{}
+  \entry{WEBSITE:HAL}{misc}{}{}
     \name{author}{1}{}{%
       {{hash=W}{%
          family={Wikipedia},
@@ -374,7 +374,7 @@
     \field{urlyear}{2023}
   \endentry
 
-  \entry{WEBSITE:STM32CUBE}{misc}{}
+  \entry{WEBSITE:STM32CUBE}{misc}{}{}
     \name{author}{1}{}{%
       {{hash=S}{%
          family={ST},
@@ -395,7 +395,7 @@
     \field{urlyear}{2023}
   \endentry
 
-  \entry{WEBSITE:2}{misc}{}
+  \entry{WEBSITE:2}{misc}{}{}
     \name{author}{1}{}{%
       {{hash=W}{%
          family={Wikipedia},
@@ -415,7 +415,7 @@
     \field{urlyear}{2023}
   \endentry
 
-  \entry{WEBSITE:3}{misc}{}
+  \entry{WEBSITE:3}{misc}{}{}
     \name{author}{1}{}{%
       {{hash=E}{%
          family={Embedded},
@@ -435,7 +435,7 @@
     \field{urlyear}{2023}
   \endentry
 
-  \entry{WEBSITE:SPI}{misc}{}
+  \entry{WEBSITE:SPI}{misc}{}{}
     \name{author}{1}{}{%
       {{hash=W}{%
          family={Wikipedia},
@@ -455,7 +455,7 @@
     \field{urlyear}{2023}
   \endentry
 
-  \entry{WEBSITE:RELE_DS}{misc}{}
+  \entry{WEBSITE:RELE_DS}{misc}{}{}
     \name{author}{1}{}{%
       {{hash=P}{%
          family={Panasonic},
@@ -476,7 +476,7 @@
     \field{urlyear}{2024}
   \endentry
 
-  \entry{WEBSITE:TRANS_DS}{misc}{}
+  \entry{WEBSITE:TRANS_DS}{misc}{}{}
     \name{author}{1}{}{%
       {{hash=SF}{%
          family={Semiconductor},
@@ -499,7 +499,7 @@
     \field{urlyear}{2024}
   \endentry
 
-  \entry{WEBSITE:RC_CIRCUIT}{misc}{}
+  \entry{WEBSITE:RC_CIRCUIT}{misc}{}{}
     \name{author}{1}{}{%
       {{hash=W}{%
          family={Wikipedia},
@@ -519,7 +519,7 @@
     \field{urlyear}{2024}
   \endentry
 
-  \entry{WEBSITE:BUFFERS_DS}{misc}{}
+  \entry{WEBSITE:BUFFERS_DS}{misc}{}{}
     \name{author}{1}{}{%
       {{hash=IT}{%
          family={Instruments},
@@ -541,7 +541,7 @@
     \field{urlyear}{2024}
   \endentry
 
-  \entry{WEBSITE:PULSADOR_DS}{misc}{}
+  \entry{WEBSITE:PULSADOR_DS}{misc}{}{}
     \name{author}{1}{}{%
       {{hash=ES}{%
          family={E-Switch},
@@ -561,7 +561,7 @@
     \field{urlyear}{2024}
   \endentry
 
-  \entry{WEBSITE:LEDS_DS}{misc}{}
+  \entry{WEBSITE:LEDS_DS}{misc}{}{}
     \name{author}{1}{}{%
       {{hash=K}{%
          family={Kingbright},
@@ -581,7 +581,7 @@
     \field{urlyear}{2024}
   \endentry
 
-  \entry{WEBSITE:POTENC_DS}{misc}{}
+  \entry{WEBSITE:POTENC_DS}{misc}{}{}
     \name{author}{1}{}{%
       {{hash=B}{%
          family={Bourns},

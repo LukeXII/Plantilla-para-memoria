@@ -16,7 +16,7 @@
 \contentsline {section}{\numberline {2.5}Recursos de software}{12}{section.2.5}%
 \contentsline {subsection}{\numberline {2.5.1}Sistema operativo de tiempo real FreeRTOS}{12}{subsection.2.5.1}%
 \contentsline {subsection}{\numberline {2.5.2}Capa de abstracción de hardware (HAL)}{12}{subsection.2.5.2}%
-\contentsline {section}{\numberline {2.6}Periféricos utilizados}{13}{section.2.6}%
+\contentsline {section}{\numberline {2.6}Periféricos utilizados}{12}{section.2.6}%
 \contentsline {subsection}{\numberline {2.6.1}Conversor analógico-digital (ADC)}{13}{subsection.2.6.1}%
 \contentsline {subsection}{\numberline {2.6.2}Universal Asynchronous Receiver Transmitter (UART)}{13}{subsection.2.6.2}%
 \contentsline {subsection}{\numberline {2.6.3}Serial Peripheral Interface (SPI)}{13}{subsection.2.6.3}%
@@ -50,8 +50,8 @@
 \contentsline {subsection}{\numberline {4.3.2}Prueba del monitor de corriente}{35}{subsection.4.3.2}%
 \contentsline {subsection}{\numberline {4.3.3}Prueba de la pantalla LCD}{36}{subsection.4.3.3}%
 \contentsline {subsection}{\numberline {4.3.4}Prueba de la consola de control}{37}{subsection.4.3.4}%
-\contentsline {section}{\numberline {4.4}Pruebas de integración}{38}{section.4.4}%
-\contentsline {subsection}{\numberline {4.4.1}Funcionamiento normal}{38}{subsection.4.4.1}%
+\contentsline {section}{\numberline {4.4}Pruebas de integración}{37}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Funcionamiento normal}{37}{subsection.4.4.1}%
 \contentsline {subsection}{\numberline {4.4.2}Detección de alarmas}{38}{subsection.4.4.2}%
 \contentsline {subsection}{\numberline {4.4.3}Detección de sobrecorriente}{39}{subsection.4.4.3}%
 \contentsline {section}{\numberline {4.5}Comparación del prototipo con el producto existente}{40}{section.4.5}%

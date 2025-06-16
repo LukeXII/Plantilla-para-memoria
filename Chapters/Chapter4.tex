@@ -91,6 +91,7 @@ Con el valor de tensión de entrada y el medido por la placa se computa el error
 Del gráfico se observa que en este rango se tiene un error de medición máximo del 1,5 \% y un valor promedio aproximado del 1,04 \% respecto del valor real.
 
 \subsection{Prueba del monitor de corriente}
+\label{sec:pruebaMonitorCorr}
 
 Para esta prueba se procede de igual forma que en la subsección \ref{sec:monCorr} pero en lugar de medir la tensión de salida del monitor se toma directamente la lectura de medición de corriente de la pantalla LCD.
 
@@ -137,6 +138,7 @@ Para ello lo que se hace es, mediante el emulador de puertos PuTTY, enviar media
 Las pruebas de integración tienen como objetivo verificar el cumplimiento de los requerimientos establecidos en el documento \citep{DOC_REQ} y mencionados en la sección \ref{sec:reqs}. Al hacer esto se valida la correcta interacción entre el hardware y el firmware, es decir, el funcionamiento del sistema como una unidad.
 
 \subsection{Funcionamiento normal}
+\label{sec:funcNorm}
 
 En la figura \ref{fig:funcNorm} se puede ver el estado de la pantalla LCD durante el funcionamiento normal, con el amplificador alimentado, su salida óptica prendida y ninguna alarma activa.
 
@@ -150,6 +152,7 @@ En la figura \ref{fig:funcNorm} se puede ver el estado de la pantalla LCD durant
 De aquí se observa que los valores límites, las alarmas y las variables medidas se actualizan con la frecuencia pretendida en el programa.
 
 \subsection{Detección de alarmas}
+\label{sec:detecAlarm}
 
 Cuando alguna de las alarmas se activa mientras la salida óptica del amplificador permanece encendida, esta se debe apagar inmediatamente mediante la señal de control OUT\_POW\_MUTE, ya que de no hacerlo, esto podría dañar el EDFA.
 
@@ -174,6 +177,7 @@ En la figura \ref{fig:detecAlarm} se puede ver el estado de la pantalla LCD lueg
 \end{figure}
 
 \subsection{Detección de sobrecorriente}
+\label{sec:detecOC}
 
 Al igual que para el caso de la detección de alarmas, la detección de una sobrecorriente también debe procesarse rápidamente. En este caso, se asoció la señal de alarma del monitor de corriente a una interrupción en el programa, y se midió el retardo entre el momento en que se activa dicha señal y la desactivación de la señal que controla el relé de alimentación.
 
@@ -190,7 +194,7 @@ Se puede observar que el tiempo de retardo que existe entre la detección de la 
 
 \section{Comparación del prototipo con el producto existente}
 
-En la tabla \ref{tab:comparacionDisp} se puede ver una comparación entre las funcionalidades del producto existente y las del prototipo desarollado en este trabajo.
+En la tabla \ref{tab:comparacionDisp} se puede ver una comparación entre las funcionalidades del producto existente y las del prototipo desarrollado en este trabajo.
 
 \begin{table}[H]
 	\centering
@@ -216,5 +220,16 @@ En la tabla \ref{tab:comparacionDisp} se puede ver una comparación entre las fu
 	\label{tab:comparacionDisp}
 \end{table}
 
+La tabla deja en evidencia que, aún siendo un prototipo, el dispositivo desarrollado cuenta con un número mucho mayor de funcionalidades que lo hacen más adecuado para su uso con el amplificador. Las protecciones incluidas son de mayor importancia, particularmente en este tipo de contexto donde el hardware como el EDFA tiene un costo muy elevado.
+
 \section{Cumplimiento de requerimientos}
+
+Las pruebas realizadas en este capítulo verifican el cumplimiento de la mayoría de los requerimientos mencionados en la seccion \ref{sec:reqs}:
+
+\begin{itemize}
+\item Las pruebas de detección de alarmas (sección \ref{sec:detecAlarm}) verifican el cumplimiento de los requerimientos 1.1, 3.1 y 4.2.
+\item Las pruebas de detección de sobrecorriente (sección \ref{sec:detecOC}) verifican el cumplimiento de los requerimientos 1.3 y 4.1.
+\item Las pruebas del monitor de tensión (sección \ref{sec:pruebaMonitorCorr}), las del monitor de corriente (sección \ref{sec:pruebaMonitorCorr}) y las de la pantalla durante el funcionamiento normal (sección \ref{sec:funcNorm}) verifican el cumplimiento del requerimiento 1.4.
+\item Las pruebas de la pantalla durante el funcionamiento normal (sección \ref{sec:funcNorm}) verifican el cumplimiento del requerimiento 2.2.
+\end{itemize}
 
